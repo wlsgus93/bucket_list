@@ -1,4 +1,4 @@
-import {createStore, combineReducers} from "redux;"
+import {createStore, combineReducers} from "redux";
 import bucket from "./modules/bucket";
 //리듀서를 엮으려면 리듀서부터 가지고온다
 //bucket 에서 reducer를 export default 해줌

@@ -1,19 +1,25 @@
 // bucket.js
 
 // Actions
-const LOAD = 'my-app/widgets/LOAD'; 
+const LOAD = 'bucket/LOAD'; 
 const CREATE = 'bucket/CREATE';
 
 //맨처음에 초기값을 정해줘야됌
 const initialState = {
-    list:["영화관 가기", "매일 책읽기", "수영 배우기"],
+    list:["영화관 가기", "매일 책읽기", "수영 배우기" , "코딩하기", " 배고파요"],
 
 };
 
 // Action Creators
-export function createBucket(bucket){
+export const createBucket= (bucket) => {
+    console.log("액션생성할거임~")
     return {type:CREATE, bucket:bucket}
 }
+export const loadBucket = (bucket) => {
+    return { type: LOAD, bucket };
+  };
+
+
 //bucket 데이터를 받아와야죠~
 // export function loadWidgets() {
 //     return {
@@ -30,7 +36,7 @@ export function createBucket(bucket){
 //     };
     //return { type : CREATE,widjet}
         // {widjet:widjet} = > {widjet}
-}
+// }
 
 // export function updateWidget(widget) {
 //     return {
@@ -51,7 +57,8 @@ export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         case "bucket/CREATE":
             {
-                const new_bucket_list=[...initialState, action.bucket];
+                console.log("값을바꿀꺼임")
+                const new_bucket_list=[...state.list, action.bucket];
                 return{list: new_bucket_list };
             }
         // do reducer stuff
